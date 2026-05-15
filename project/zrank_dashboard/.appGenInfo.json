@@ -1,0 +1,28 @@
+{
+  "generationParameters": {
+    "generationDate": "Thu Apr 16 2026 22:42:26 GMT+0700 (Indochina Time)",
+    "generatorPlatform": "Visual Studio Code",
+    "serviceType": "OData URL",
+    "metadataFilename": "",
+    "serviceUrl": "https://s35lp1.ucc.cit.tum.de:8100/sap/opu/odata/sap/Z_C_RANK_REVENUE_QUERY_CDS/",
+    "appName": "zrank_dashboard",
+    "appTitle": "Phân Tích Hạng Khách Hàng",
+    "appDescription": "Dashboard OVP báo cáo doanh thu và đơn hàng.",
+    "appNamespace": "com.vinatech",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.108.33",
+    "enableEslint": false,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.20.1",
+    "template": "Analytical List Page V2",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [
+      {
+        "type": "Main Entity",
+        "value": "Z_C_RANK_REVENUE_QUERY"
+      }
+    ],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```"
+  }
+}

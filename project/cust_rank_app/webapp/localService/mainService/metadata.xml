@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://s35lp1.ucc.cit.tum.de:8100/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s35lp1.ucc.cit.tum.de:8100/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s35lp1.ucc.cit.tum.de:8100/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s35lp1.ucc.cit.tum.de:8100/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s35lp1.ucc.cit.tum.de:8100/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s35lp1.ucc.cit.tum.de:8100/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s35lp1.ucc.cit.tum.de:8100/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s35lp1.ucc.cit.tum.de:8100/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s35lp1.ucc.cit.tum.de:8100/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s35lp1.ucc.cit.tum.de:8100/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZC_CUSTRANKALERT_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="ZC_CustRankAlertType" sap:label="Customer Rank Drop Alert" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CustomerId"/>
+                </Key>
+                <Property Name="CustomerId" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Customer" sap:quickinfo="Customer Number"/>
+                <Property Name="RankId" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Rank Id" sap:quickinfo="Rank ID"/>
+                <Property Name="TotalAmount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="Currency" sap:label="Net Value" sap:quickinfo="Net Value in Document Currency"/>
+                <Property Name="Currency" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Currency" sap:quickinfo="Currency Key" sap:semantics="currency-code"/>
+                <Property Name="FiscalYear" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Fiscal Year"/>
+                <Property Name="IsActive" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Active" sap:quickinfo="Yes or No field"/>
+                <Property Name="IsFixed" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Is fixed" sap:quickinfo="Yes or No"/>
+                <Property Name="ValidFrom" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Valid From" sap:quickinfo="Field of type DATS"/>
+                <Property Name="ValidTo" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Valid From" sap:quickinfo="Field of type DATS"/>
+                <Property Name="SecuredRankId" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Last Year Rank Id"/>
+                <Property Name="PacingPercentage" Type="Edm.Double"/>
+                <NavigationProperty Name="to_CustInfo" Relationship="ZC_CUSTRANKALERT_CDS.assoc_BE3A25DF7B92E442080BD2014E8104BA" FromRole="FromRole_assoc_BE3A25DF7B92E442080BD2014E8104BA" ToRole="ToRole_assoc_BE3A25DF7B92E442080BD2014E8104BA"/>
+                <NavigationProperty Name="to_Pacing" Relationship="ZC_CUSTRANKALERT_CDS.assoc_1939157F0CFDF5E3A69D744A2995A266" FromRole="FromRole_assoc_1939157F0CFDF5E3A69D744A2995A266" ToRole="ToRole_assoc_1939157F0CFDF5E3A69D744A2995A266"/>
+                <NavigationProperty Name="to_RankCfg" Relationship="ZC_CUSTRANKALERT_CDS.assoc_3A7A9C70D5514BA7DC0BC70F87AF81F0" FromRole="FromRole_assoc_3A7A9C70D5514BA7DC0BC70F87AF81F0" ToRole="ToRole_assoc_3A7A9C70D5514BA7DC0BC70F87AF81F0"/>
+                <NavigationProperty Name="to_RankLog" Relationship="ZC_CUSTRANKALERT_CDS.assoc_8B78514C408A0388D768356CA4480C68" FromRole="FromRole_assoc_8B78514C408A0388D768356CA4480C68" ToRole="ToRole_assoc_8B78514C408A0388D768356CA4480C68"/>
+            </EntityType>
+            <EntityType Name="Z_I_CHURN_PACINGType" sap:label="Interface - Tính Tiến độ (Pacing)" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CustomerId"/>
+                    <PropertyRef Name="RankId"/>
+                </Key>
+                <Property Name="CustomerId" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Customer" sap:quickinfo="Customer Number"/>
+                <Property Name="RankId" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Rank Id" sap:quickinfo="Rank ID"/>
+                <Property Name="TotalAmount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="Currency" sap:label="Net Value" sap:quickinfo="Net Value in Document Currency"/>
+                <Property Name="DownLimit" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="Currency" sap:label="Net Value" sap:quickinfo="Net Value in Document Currency"/>
+                <Property Name="Currency" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Currency" sap:quickinfo="Currency Key" sap:semantics="currency-code"/>
+                <Property Name="PacingPercentage" Type="Edm.Double"/>
+            </EntityType>
+            <EntityType Name="Z_I_CUST_INFOType" sap:label="Interface - Customer information" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CustomerId"/>
+                    <PropertyRef Name="InvoiceNumber"/>
+                    <PropertyRef Name="InvoiceItem"/>
+                </Key>
+                <Property Name="CustomerId" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Payer"/>
+                <Property Name="InvoiceNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Billing Document"/>
+                <Property Name="InvoiceItem" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="NonNegative" sap:label="Item" sap:quickinfo="Billing Item"/>
+                <Property Name="CustomerName" Type="Edm.String" MaxLength="35" sap:label="Name" sap:quickinfo="Name 1"/>
+                <Property Name="InvoiceDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Billing Date"/>
+                <Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Company Code"/>
+                <Property Name="InvoiceNetValue" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="Currency" sap:label="Net Value" sap:quickinfo="Net Value in Document Currency"/>
+                <Property Name="TaxAmount" Type="Edm.Decimal" Precision="14" Scale="3" sap:unit="Currency" sap:label="Tax Amount" sap:quickinfo="Tax Amount in Document Currency"/>
+                <Property Name="Currency" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Document Currency" sap:quickinfo="SD Document Currency" sap:semantics="currency-code"/>
+                <Property Name="SalesOrder" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Sales Document"/>
+                <Property Name="SalesOrderItem" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:label="Sales Document Item"/>
+                <Property Name="MaterialNumber" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number"/>
+                <Property Name="MaterialDescription" Type="Edm.String" MaxLength="40" sap:label="Item Description" sap:quickinfo="Short text for sales order item"/>
+                <Property Name="BilledQuantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="UnitOfMeasure" sap:label="Billed Quantity" sap:quickinfo="Actual billed quantity"/>
+                <Property Name="UnitOfMeasure" Type="Edm.String" MaxLength="3" sap:label="Sales Unit" sap:semantics="unit-of-measure"/>
+                <Property Name="ItemNetValue" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="Currency" sap:label="Net Value" sap:quickinfo="Net Value of Billing item in Document Currency"/>
+                <Property Name="PaymentDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Clearing Date"/>
+                <Property Name="PaymentDocument" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Clearing Document" sap:quickinfo="Document Number of the Clearing Document"/>
+                <Property Name="PaidAmount" Type="Edm.Decimal" Precision="24" Scale="3" sap:unit="PaymentCurrency" sap:label="Amount in Loc. Curr." sap:quickinfo="Amount in local currency"/>
+                <Property Name="PaymentCurrency" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Currency" sap:quickinfo="Currency Key" sap:semantics="currency-code"/>
+                <Property Name="AccountingDocDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Document Date" sap:quickinfo="Document Date in Document"/>
+                <Property Name="Assignment" Type="Edm.String" MaxLength="18" sap:label="Assignment" sap:quickinfo="Assignment number"/>
+            </EntityType>
+            <EntityType Name="Z_I_CUST_RANK_LOGType" sap:label="Customer Rank Change Log" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="LogId"/>
+                </Key>
+                <Property Name="LogId" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:quickinfo="16 Byte UUID in 16 Bytes (Raw Format)"/>
+                <Property Name="CustomerId" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Customer" sap:quickinfo="Customer Number"/>
+                <Property Name="EventType" Type="Edm.String" MaxLength="100" sap:display-format="UpperCase" sap:label="Update Log" sap:quickinfo="Change Type"/>
+                <Property Name="NewRankId" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Rank Id" sap:quickinfo="Rank ID"/>
+                <Property Name="OldRankId" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Rank Id" sap:quickinfo="Rank ID"/>
+                <Property Name="OldAmount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="Currency" sap:label="Old Amount" sap:quickinfo="Net Value in Document Currency"/>
+                <Property Name="NewAmount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="Currency" sap:label="New Amount" sap:quickinfo="Net Value in Document Currency"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Status" sap:quickinfo="STATUS"/>
+                <Property Name="Currency" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Currency" sap:quickinfo="Currency Key" sap:semantics="currency-code"/>
+                <Property Name="LogDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Created On" sap:quickinfo="Record Created On"/>
+                <Property Name="LogTime" Type="Edm.Time" Precision="0" sap:label="Time" sap:quickinfo="Entry time"/>
+                <Property Name="LogPerson" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Changed By (User)" sap:quickinfo="User Name"/>
+            </EntityType>
+            <EntityType Name="Z_I_RANK_CFGType" sap:label="Rank Config VinaTech" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RankId"/>
+                </Key>
+                <Property Name="RankId" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Rank Id" sap:quickinfo="Rank ID"/>
+                <Property Name="RankCode" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Rank Code"/>
+                <Property Name="RankName" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Rank Name" sap:quickinfo="VTC Rank Name"/>
+                <Property Name="DiscountRate" Type="Edm.Decimal" Precision="12" Scale="3" sap:unit="DiscountUnit" sap:label="Amount" sap:quickinfo="Condition Amount or Percentage"/>
+                <Property Name="DiscountType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Calculation Type" sap:quickinfo="Calculation Type for Condition"/>
+                <Property Name="UpLimit" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="LimitUnit" sap:label="Net Value" sap:quickinfo="Net Value in Document Currency"/>
+                <Property Name="DownLimit" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="LimitUnit" sap:label="Net Value" sap:quickinfo="Net Value in Document Currency"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="255" sap:label="Text" sap:quickinfo="Text, 255 Characters"/>
+                <Property Name="LimitUnit" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Currency" sap:quickinfo="Currency Key" sap:semantics="currency-code"/>
+                <Property Name="DiscountUnit" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Condition Currency" sap:quickinfo="Condition Unit (Currency or Percentage)" sap:semantics="currency-code"/>
+            </EntityType>
+            <Association Name="assoc_1939157F0CFDF5E3A69D744A2995A266" sap:content-version="1">
+                <End Type="ZC_CUSTRANKALERT_CDS.ZC_CustRankAlertType" Multiplicity="1" Role="FromRole_assoc_1939157F0CFDF5E3A69D744A2995A266"/>
+                <End Type="ZC_CUSTRANKALERT_CDS.Z_I_CHURN_PACINGType" Multiplicity="0..1" Role="ToRole_assoc_1939157F0CFDF5E3A69D744A2995A266"/>
+            </Association>
+            <Association Name="assoc_3A7A9C70D5514BA7DC0BC70F87AF81F0" sap:content-version="1">
+                <End Type="ZC_CUSTRANKALERT_CDS.ZC_CustRankAlertType" Multiplicity="1" Role="FromRole_assoc_3A7A9C70D5514BA7DC0BC70F87AF81F0"/>
+                <End Type="ZC_CUSTRANKALERT_CDS.Z_I_RANK_CFGType" Multiplicity="0..1" Role="ToRole_assoc_3A7A9C70D5514BA7DC0BC70F87AF81F0"/>
+            </Association>
+            <Association Name="assoc_8B78514C408A0388D768356CA4480C68" sap:content-version="1">
+                <End Type="ZC_CUSTRANKALERT_CDS.ZC_CustRankAlertType" Multiplicity="1" Role="FromRole_assoc_8B78514C408A0388D768356CA4480C68"/>
+                <End Type="ZC_CUSTRANKALERT_CDS.Z_I_CUST_RANK_LOGType" Multiplicity="*" Role="ToRole_assoc_8B78514C408A0388D768356CA4480C68"/>
+            </Association>
+            <Association Name="assoc_BE3A25DF7B92E442080BD2014E8104BA" sap:content-version="1">
+                <End Type="ZC_CUSTRANKALERT_CDS.ZC_CustRankAlertType" Multiplicity="1" Role="FromRole_assoc_BE3A25DF7B92E442080BD2014E8104BA"/>
+                <End Type="ZC_CUSTRANKALERT_CDS.Z_I_CUST_INFOType" Multiplicity="*" Role="ToRole_assoc_BE3A25DF7B92E442080BD2014E8104BA"/>
+            </Association>
+            <EntityContainer Name="ZC_CUSTRANKALERT_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZC_CustRankAlert" EntityType="ZC_CUSTRANKALERT_CDS.ZC_CustRankAlertType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="Z_I_CHURN_PACING" EntityType="ZC_CUSTRANKALERT_CDS.Z_I_CHURN_PACINGType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="Z_I_CUST_INFO" EntityType="ZC_CUSTRANKALERT_CDS.Z_I_CUST_INFOType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="Z_I_CUST_RANK_LOG" EntityType="ZC_CUSTRANKALERT_CDS.Z_I_CUST_RANK_LOGType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="Z_I_RANK_CFG" EntityType="ZC_CUSTRANKALERT_CDS.Z_I_RANK_CFGType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_1939157F0CFDF5E3A69D744A2995A266" Association="ZC_CUSTRANKALERT_CDS.assoc_1939157F0CFDF5E3A69D744A2995A266" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_CustRankAlert" Role="FromRole_assoc_1939157F0CFDF5E3A69D744A2995A266"/>
+                    <End EntitySet="Z_I_CHURN_PACING" Role="ToRole_assoc_1939157F0CFDF5E3A69D744A2995A266"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_BE3A25DF7B92E442080BD2014E8104BA" Association="ZC_CUSTRANKALERT_CDS.assoc_BE3A25DF7B92E442080BD2014E8104BA" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_CustRankAlert" Role="FromRole_assoc_BE3A25DF7B92E442080BD2014E8104BA"/>
+                    <End EntitySet="Z_I_CUST_INFO" Role="ToRole_assoc_BE3A25DF7B92E442080BD2014E8104BA"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_3A7A9C70D5514BA7DC0BC70F87AF81F0" Association="ZC_CUSTRANKALERT_CDS.assoc_3A7A9C70D5514BA7DC0BC70F87AF81F0" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_CustRankAlert" Role="FromRole_assoc_3A7A9C70D5514BA7DC0BC70F87AF81F0"/>
+                    <End EntitySet="Z_I_RANK_CFG" Role="ToRole_assoc_3A7A9C70D5514BA7DC0BC70F87AF81F0"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_8B78514C408A0388D768356CA4480C68" Association="ZC_CUSTRANKALERT_CDS.assoc_8B78514C408A0388D768356CA4480C68" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_CustRankAlert" Role="FromRole_assoc_8B78514C408A0388D768356CA4480C68"/>
+                    <End EntitySet="Z_I_CUST_RANK_LOG" Role="ToRole_assoc_8B78514C408A0388D768356CA4480C68"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotations Target="ZC_CUSTRANKALERT_CDS.ZC_CUSTRANKALERT_CDS_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ZC_CUSTRANKALERT_CDS.ZC_CUSTRANKALERT_CDS_Entities/ZC_CustRankAlert" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_CustInfo"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_Pacing"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_RankCfg"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_RankLog"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://s35lp1.ucc.cit.tum.de:8100/sap/opu/odata/sap/ZC_CUSTRANKALERT_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://s35lp1.ucc.cit.tum.de:8100/sap/opu/odata/sap/ZC_CUSTRANKALERT_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

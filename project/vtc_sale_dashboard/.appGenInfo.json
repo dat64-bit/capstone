@@ -1,0 +1,28 @@
+{
+  "generationParameters": {
+    "generationDate": "Mon Apr 27 2026 21:06:53 GMT+0700 (Indochina Time)",
+    "generatorPlatform": "Visual Studio Code",
+    "serviceType": "OData URL",
+    "metadataFilename": "",
+    "serviceUrl": "https://s35lp1.ucc.cit.tum.de:8100/sap/opu/odata/sap/ZC_OVP_REV_COMPARE_CDS/",
+    "appName": "vtc_sale_dashboard",
+    "appTitle": "Sale Management Dashboard",
+    "appDescription": "VinaTech: Sales Dashboard",
+    "appNamespace": "com.vinatech",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.147.1",
+    "enableEslint": false,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.20.1",
+    "template": "Overview Page V2",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [
+      {
+        "type": "Filter Entity Type",
+        "value": "ZC_OVP_REV_COMPARE"
+      }
+    ],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```"
+  }
+}

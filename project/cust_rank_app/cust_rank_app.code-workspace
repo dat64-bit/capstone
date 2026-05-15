@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "cust_rank_app",
+			"path": "."
+		},
+		{
+			"name": "zrank_dashboard",
+			"path": "../zrank_dashboard"
+		}
+	],
+	"settings": {}
+}

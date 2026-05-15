@@ -1,0 +1,177 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/ZC_CUSTRANKALERT_CDS/$metadata">
+        <edmx:Include Namespace="ZC_CUSTRANKALERT_CDS" />
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="ZC_CUSTRANKALERT_CDS.ZC_CustRankAlertType">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CustomerId" />
+                            <PropertyValue Property="Label" String="Mã Khách Hàng" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="to_RankCfg/RankName" />
+                            <PropertyValue Property="Label" String="Tên Rank" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="TotalAmount" />
+                            <PropertyValue Property="Label" String="Điểm Hạng" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Currency" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="FiscalYear" />
+                            <PropertyValue Property="Label" String="Năm Tích Lũy" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="IsActive" />
+                            <PropertyValue Property="Label" String="Trạng Thái Hoạt Động" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="IsFixed" />
+                            <PropertyValue Property="Label" String="Cố định Hạng" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SecuredRankId" />
+                            <PropertyValue Property="Label" String="Hạng Bảo Lưu" />
+                        </Record>
+                        <Record Type="UI.DataFieldForAnnotation">
+                            <PropertyValue Property="Label" String="Tiến Độ Rank" />
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#Progess" />
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.DataPoint" Qualifier="Progess">
+                    <Record Type="UI.DataPointType">
+                        <PropertyValue Property="Value" Path="PacingPercentage" />
+                        <PropertyValue Property="TargetValue" Int="100" />
+                        <PropertyValue Property="Visualization" EnumMember="UI.VisualizationType/Progress" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="Thông Tin Hạng Khách Hàng" />
+                        <PropertyValue Property="TypeNamePlural" String="Thông Tin Hạng Khách Hàng" />
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="CustomerId" />
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="to_RankCfg/RankName" />
+                            </Record> 
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="GeneralInformation" />
+                            <PropertyValue Property="Label" String="Thông Tin Chung" />
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#GeneralInfo" />
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="OrderInformation" />
+                            <PropertyValue Property="Label" String="Đơn Hàng" />
+                            <PropertyValue Property="Target" AnnotationPath="to_CustInfo/@UI.LineItem#CustOrders" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="GeneralInfo">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CustomerId" />
+                                    <PropertyValue Property="Label" String="Mã Khách Hàng" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="to_RankCfg/RankName" />
+                                    <PropertyValue Property="Label" String="Tên Rank" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="TotalAmount" />
+                                    <PropertyValue Property="Label" String="Điểm Hạng" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Currency" />
+                                    <PropertyValue Property="Label" String="Loại Tiền Tệ" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="FiscalYear" />
+                                    <PropertyValue Property="Label" String="Năm Tích Lũy" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="IsActive" />
+                                    <PropertyValue Property="Label" String="Trạng Thái Hoạt Động" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="IsFixed" />
+                                    <PropertyValue Property="Label" String="Cố định Hạng" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="SecuredRankId" />
+                                    <PropertyValue Property="Label" String="Hạng Bảo Lưu" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="to_Pacing/DownLimit" />
+                                    <PropertyValue Property="Label" String="Giới Hạn Tựt Hạng" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_CUSTRANKALERT_CDS.Z_I_CUST_INFOType">
+                <Annotation Term="UI.LineItem" Qualifier="CustOrders">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="InvoiceNumber" />
+                            <PropertyValue Property="Label" String="Số Hóa Đơn" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="InvoiceDate" />
+                            <PropertyValue Property="Label" String="Ngày Hóa Đơn" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrder" />
+                            <PropertyValue Property="Label" String="Đơn Hàng" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="MaterialNumber" />
+                            <PropertyValue Property="Label" String="Mã Hàng" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="MaterialDescription" />
+                            <PropertyValue Property="Label" String="Tên Hàng" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="BilledQuantity" />
+                            <PropertyValue Property="Label" String="Số Lượng" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ItemNetValue" />
+                            <PropertyValue Property="Label" String="Giá Trị" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="TaxAmount" />
+                            <PropertyValue Property="Label" String="Tiền Thuế" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="PaidAmount" />
+                            <PropertyValue Property="Label" String="Tiền Đã Thanh Toán" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

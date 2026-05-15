@@ -1,0 +1,19 @@
+{
+  "deployer": {
+    "type": "Gateway",
+    "options": {
+      "conn": {
+        "server": "https://s35.gb.ucc.cit.tum.de",
+        "client": "302"
+      },
+      "ui5": {
+        "language": "EN",
+        "package": "ZPK_SAP490_G9_SP26",
+        "bspcontainer": "Z_SAP490_G9_APP",
+        "bspcontainer_text": "ZRANKDASHBOARD",
+        "calc_appindex": true,
+        "transportno": "S35K902879"
+      }
+    }
+  }
+}

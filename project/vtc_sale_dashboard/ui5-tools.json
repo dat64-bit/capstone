@@ -1,0 +1,19 @@
+{
+  "deployer": {
+    "type": "Gateway",
+    "options": {
+      "conn": {
+        "server": "https://s35lp1.ucc.cit.tum.de:8100",
+        "client": "302"
+      },
+      "ui5": {
+        "language": "EN",
+        "package": "ZPK_SAP490_G9_SP26",
+        "bspcontainer": "Z_SAP490_G9_SAL",
+        "bspcontainer_text": "SAP490_G9 Sale manager dashborad ",
+        "calc_appindex": true,
+        "transportno": "S35K902879"
+      }
+    }
+  }
+}

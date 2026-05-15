@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sale Management Dashboard (Sandbox)</title>
+    
+    <!-- 1. Cấu hình Fiori Sandbox -->
+    <script type="text/javascript">
+        window["sap-ushell-config"] = {
+            defaultRenderer: "fiori2",
+            renderers: {
+                fiori2: {
+                    componentData: {
+                        config: {
+                            enableSearch: false,
+                            rootIntent: "SalesDashboard-display"
+                        }
+                    }
+                }
+            },
+            applications: {
+                "SalesDashboard-display": {
+                    additionalInformation: "SAPUI5.Component=com.vinatech.vtcsaledashboard",
+                    applicationType: "URL",
+                    url: "./",
+                    description: "Sales Management Dashboard",
+                    title: "Sales Dashboard"
+                }
+            }
+        };
+    </script>
+
+    <!-- 2. Tải Sandbox module từ thư viện test của SAP (Dùng CDN vì server nội bộ không mở) -->
+    <script src="https://ui5.sap.com/test-resources/sap/ushell/bootstrap/sandbox.js" id="sap-ushell-bootstrap"></script>
+
+    <!-- 3. Tải bộ core UI5 từ CDN -->
+    <script
+        id="sap-ui-bootstrap"
+        src="https://ui5.sap.com/resources/sap-ui-core.js"
+        data-sap-ui-libs="sap.m, sap.ushell, sap.ui.core, sap.ui.layout, sap.f, sap.ovp"
+        data-sap-ui-theme="sap_horizon"
+        data-sap-ui-compatVersion="edge"
+        data-sap-ui-resourceroots='{"com.vinatech.vtcsaledashboard": "./"}'
+        data-sap-ui-frameOptions="allow">
+    </script>
+
+    <!-- 4. Render Launchpad Container -->
+    <script type="text/javascript">
+        sap.ui.getCore().attachInit(function() {
+            sap.ushell.Container.createRenderer().placeAt("content");
+        });
+    </script>
+</head>
+<body class="sapUiBody sapUiSizeCompact" id="content">
+</body>
+</html>

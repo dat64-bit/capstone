@@ -1,0 +1,289 @@
+{
+  "_version": "1.81.0",
+  "sap.app": {
+    "id": "com.vinatech.vtcsaledashboard",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:ovp",
+      "version": "1.20.1",
+      "toolsId": "5522d9ff-84a1-4afc-8ddd-a32140143cb1"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZC_OVP_REV_COMPARE_CDS/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "qtyMatGrpService": {
+        "uri": "/sap/opu/odata/sap/ZC_OVP_QTY_MATGRP_CDS/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "odataVersion": "2.0"
+        }
+      },
+      "topCustService": {
+        "uri": "/sap/opu/odata/sap/ZC_OVP_TOP_CUST_CDS/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "odataVersion": "2.0"
+        }
+      },
+      "billingStatusService": {
+        "uri": "/sap/opu/odata/sap/ZC_OVP_BILL_STATUS_CDS/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "odataVersion": "2.0"
+        }
+      },
+      "billingTypeService": {
+        "uri": "/sap/opu/odata/sap/ZC_OVP_BILL_TYPE_CDS/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "odataVersion": "2.0"
+        }
+      },
+      "cancelRateService": {
+        "uri": "/sap/opu/odata/sap/ZC_OVP_CANCEL_RATE_CDS/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.147.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ushell": {},
+        "sap.f": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ovp": {},
+        "sap.ui.rta": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.vinatech.vtcsaledashboard.i18n.i18n"
+        }
+      },
+      "mainModel": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false,
+          "metadataUrlParams": {
+            "sap-value-list": "none"
+          }
+        }
+      },
+      "qtyMatGrpModel": {
+        "dataSource": "qtyMatGrpService",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false
+        }
+      },
+      "topCustModel": {
+        "dataSource": "topCustService",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false
+        }
+      },
+      "billingStatusModel": {
+        "dataSource": "billingStatusService",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false
+        }
+      },
+      "billingTypeModel": {
+        "dataSource": "billingTypeService",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false
+        }
+      },
+      "cancelRateModel": {
+        "dataSource": "cancelRateService",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [],
+      "targets": {}
+    }
+  },
+  "sap.ovp": {
+    "globalFilterModel": "mainModel",
+    "globalFilterEntitySet": "ZC_OVP_REV_COMPARE",
+    "containerLayout": "resizable",
+    "enableLiveFilter": true,
+    "considerAnalyticalParameters": false,
+    "cards": {
+      "cardRevenueCompare": {
+        "template": "sap.ovp.cards.charts.analytical",
+        "model": "mainModel",
+        "settings": {
+          "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#RevenueCompare",
+          "entitySet": "ZC_OVP_REV_COMPARE",
+          "title": "So sánh doanh thu theo tháng",
+          "subTitle": "Theo năm, nhóm hàng, vật liệu và khách hàng",
+          "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#DP_RevenueCompare",
+          "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#PV_RevenueCompare",
+          "filterSettings": {
+            "displayIfEmpty": true,
+            "displaySearchField": false
+          }
+        }
+      },
+      "cardQtyByMaterialGroup": {
+        "template": "sap.ovp.cards.charts.analytical",
+        "model": "qtyMatGrpModel",
+        "settings": {
+          "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#QtyByMaterialGroup",
+          "entitySet": "ZC_OVP_QTY_MATGRP",
+          "title": "Tỷ trọng sản lượng theo nhóm hàng",
+          "subTitle": "Theo Material Group",
+          "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#PV_QtyByMaterialGroup"
+        }
+      },
+      "cardTopCustomerRevenue": {
+        "template": "sap.ovp.cards.charts.analytical",
+        "model": "topCustModel",
+        "settings": {
+          "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#TopCustomerRevenue",
+          "entitySet": "ZC_OVP_TOP_CUST",
+          "title": "Top 5 khách hàng doanh thu cao nhất",
+          "subTitle": "Sắp xếp theo doanh thu giảm dần",
+          "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#PV_TopCustomerRevenue"
+        }
+      },
+      "cardBillingStatus": {
+        "template": "sap.ovp.cards.charts.analytical",
+        "model": "billingStatusModel",
+        "settings": {
+          "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#BillingStatusCount",
+          "entitySet": "ZC_OVP_BILL_STATUS",
+          "title": "Số lượng hóa đơn theo trạng thái",
+          "subTitle": "Thành công, bị hủy, chứng từ hủy",
+          "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#PV_BillingStatusCount"
+        }
+      },
+      "cardBillingType": {
+        "template": "sap.ovp.cards.charts.analytical",
+        "model": "billingTypeModel",
+        "settings": {
+          "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#BillingTypeCount",
+          "entitySet": "ZC_OVP_BILL_TYPE",
+          "title": "Số lượng hóa đơn theo loại",
+          "subTitle": "Theo Billing Type",
+          "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#PV_BillingTypeCount"
+        }
+      },
+      "cardCancelRate": {
+        "template": "sap.ovp.cards.charts.analytical",
+        "model": "cancelRateModel",
+        "settings": {
+          "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#CancelRateByMonth",
+          "entitySet": "ZC_OVP_CANCEL_RATE",
+          "title": "Tỷ lệ hóa đơn hủy",
+          "subTitle": "Theo tháng",
+          "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#DPCancelRate",
+          "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#PV_CancelRateByMonth"
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "analytical"
+  }
+}

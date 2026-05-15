@@ -1,0 +1,32 @@
+{
+  "generationParameters": {
+    "generationDate": "Thu Apr 16 2026 17:17:35 GMT+0700 (Indochina Time)",
+    "generatorPlatform": "Visual Studio Code",
+    "serviceType": "OData URL",
+    "metadataFilename": "",
+    "serviceUrl": "https://s35lp1.ucc.cit.tum.de:8100/sap/opu/odata/sap/ZC_CUSTRANKALERT_CDS/",
+    "appName": "cust_rank_app",
+    "appTitle": "Thông tin hạng khách hàng",
+    "appDescription": "Ứng dụng theo dõi tiến độ và lịch sử hạng khách hàng",
+    "appNamespace": "com.vinatech",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.108.33",
+    "enableEslint": false,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.20.1",
+    "template": "List Report Page V2",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [
+      {
+        "type": "Main Entity",
+        "value": "ZC_CustRankAlert"
+      },
+      {
+        "type": "Navigation Entity",
+        "value": "None"
+      }
+    ],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```"
+  }
+}
